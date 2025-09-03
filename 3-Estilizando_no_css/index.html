@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>7STORE</title>
+</head>
+
+<body>
+    <!-- CABEÇALHO -->
+
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-tree"></i>
+            <h1>7STORE</h1>
+        </div>
+
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Pesquisar produtos...">
+            <i class="fa-solid fa-magnifying-glass "></i>
+        </div>
+
+        <div class="user-actions">
+
+            <div class="cart-icon">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-item-count">0</span>
+            </div>
+
+            <div class="login-container">
+                <i class="fa-solid fa-user"></i>
+                <div class="auth-links">
+                    <a href="login.html" class="main-link">Entrar</a>
+                    <a href="cadastro.html" class="sub-link">Cadastrar</a>
+                </div>
+            </div>
+            
+        </div>
+    </header>
+    <!-- MENU SUPERIOR -->
+    <div class="sticky-section-wrapper">
+
+        <div class="categories-container">
+            <nav class="categories-bar">
+                <button class="category-btn active" data-category="all">
+                    <i class="fa-solid fa-border-all"></i>
+                    Todos
+                </button>
+                <button class="category-btn" data-category="smartphones">
+                    <i class="fa-solid fa-mobile"></i>
+                    Smartphones
+                </button>
+                <button class="category-btn" data-category="laptops">
+                    <i class="fa-solid fa-laptop"></i>
+                    Notebooks
+                </button>
+                <button class="category-btn" data-category="headphones">
+                    <i class="fa-solid fa-headphones"></i>
+                    Fones
+                </button>
+                <button class="category-btn" data-category="accessories">
+                    <i class="fa-solid fa-keyboard"></i>
+                    Acessórios
+                </button>
+                <button class="category-btn" data-category="smartwatch">
+                    <i class="fa-solid fa-clock"></i>
+                    SmarthWatches
+                </button>
+            </nav>
+        </div>
+
+        <section class="hero-section">
+            <h2> BLACK FRIDAY ULTIMO MÊS ! </h2>
+            <p class="hero-p">Até 77% de desconto em produtos selecionados </p>
+        </section>
+
+    </div>
+    <main class="products">
+        <div class=" products-container">
+        </div>
+    </main>
+
+    <div id="register-form" style="display: none;">
+        <h2>Criar Conta</h2>
+        <form>
+            <div class="form-group">
+                <label for="register-name">Nome Completo</label>
+                <input type="text" id="register-name" placeholder="Seu nome" required>
+            </div>
+            <div class="form-group">
+                <label for="register-email">Email</label>
+                <input type="email" id="register-email" placeholder="seuemail@exemplo.com" required>
+            </div>
+            <div class="form-group">
+                <label for="register-password">Senha</label>
+                <input type="password" id="register-password" placeholder="Crie uma senha forte" required>
+            </div>
+            <button type="submit" class="form-btn">Criar Conta</button>
+            <p class="form-switch-text">
+                Já tem uma conta? <a href="#" id="show-login">Faça Login</a>
+            </p>
+        </form>
+    </div>
+    </div>
+    </div>
+
+    <div id="register-form" style="display: none;">
+        <h2>Criar Conta</h2>
+        <form>
+            <div class="form-group">
+                <label for="register-name">Nome Completo</label>
+                <input type="text" id="register-name" placeholder="Seu nome" required>
+            </div>
+            <div class="form-group">
+                <label for="register-email">Email</label>
+                <input type="email" id="register-email" placeholder="seuemail@exemplo.com" required>
+            </div>
+            <div class="form-group">
+                <label for="register-password">Senha</label>
+                <input type="password" id="register-password" placeholder="Crie uma senha forte" required>
+            </div>
+            <button type="submit" class="form-btn">Criar Conta</button>
+            <p class="form-switch-text">
+                Já tem uma conta? <a href="#" id="show-login">Faça Login</a>
+            </p>
+        </form>
+    </div>
+
+    </div>
+    </div>
+
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>2026 - 7STORE. Todos os Direitos Reservados</p>
+    </footer>
+    <div class="side-cart">
+        <div class="cart-header">
+            <h3>Meu Carrinho</h3>
+            <button class="close-cart-btn">&times;</button>
+        </div>
+        <div class="cart-items-container">
+        </div>
+        <div class="cart-footer">
+            <p>Total: <span id="cart-total">R$ 0.00</span></p>
+            <button class="checkout-btn">Finalizar Compra</button>
+        </div>
+    </div>
+    <div class="overlay"></div>
+
+
+
+
+</body>
+<script src="scripts.js">
+</script>
+
+</html>

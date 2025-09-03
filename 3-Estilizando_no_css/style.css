@@ -1,0 +1,606 @@
+* {
+    margin: 0;
+    /* criar espaço ao redor de um elemento HTML, especificamente fora da sua borda. É usada para afastar um elemento de outros elementos ou do conteúdo ao seu redor. */
+    padding: 0;
+    /*  entre o seu conteúdo e sua borda. É uma forma de controlar o espaço vazio ao redor do conteúdo de um elemento, sem afetar a sua área externa */
+    box-sizing: border-box;
+    /*alterar a forma como o navegador calcula as dimensões de um elemento  */
+}
+
+:root {
+
+
+    --primary-color: #FF4111;
+    --secondary-color: #320559;
+    --accent-color: #000000;
+    --text-color: #000000;
+    --light-gray: #eeeeee;
+    --border-color: #FFFFF0;
+    --withe-color: #ffffff;
+    --hover-btn: rgba(255, 255, 255, 0.12);
+
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    background-color: var(--light-gray);
+    line-height: 1.6;
+}
+
+/* Encontre esta regra no seu CSS */
+header {
+    background-color: var(--withe-color);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    /* --- REGRAS PARA FIXAR NO TOPO --- */
+    position: fixed;
+    /* Fixa o header na tela */
+    top: 0;
+    /* Cola no topo da página */
+    left: 0;
+    /* Cola na esquerda da página */
+    width: 100%;
+    /* Faz ocupar a largura inteira */
+    z-index: 1000;
+    /* Garante que ele fique na frente de outros elementos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Opcional: Adiciona uma sombra sutil */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.logo i {
+    font-size: 25px;
+    color: var(--primary-color);
+}
+
+.logo h1 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Encontre esta regra no seu CSS */
+.search-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0;
+    /* Altere de '0 2rem' para '0' */
+    display: flex;
+    align-items: center;
+    background-color: var(--light-gray);
+    border-radius: 1.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.search-container input {
+    width: 100%;
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+
+.search-container i {
+    color: var(--primary-color);
+}
+
+.categories-container {
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    margin-top: 90px;
+    /* Adicionado para empurrar o conteúdo para baixo */
+}
+
+/* Estilo para a nova área de login/cadastro */
+/* Container para os links de texto "Entrar" e "ou Cadastrar" */
+.auth-links {
+    display: flex;
+    flex-direction: column;
+    /* ESSA É A PROPRIEDADE CHAVE: empilha os itens verticalmente */
+    line-height: 1.2;
+    /* Controla a distância entre as linhas */
+}
+
+/* Remove o estilo genérico do link antigo, se necessário */
+.user-actions a {
+    text-decoration: none;
+    font-weight: normal;
+}
+
+/* Link principal "Entrar" */
+.main-link {
+    color: var(--primary-color);
+    font-weight: 600;
+    /* Deixa em negrito */
+    font-size: 1rem;
+    /* Tamanho padrão */
+    text-decoration: none;
+}
+
+.main-link:hover {
+    color: #ff411191;
+}
+
+/* Link secundário "ou Cadastrar" */
+.sub-link {
+    color: var(--primary-color);
+    /* Um cinza para dar menos destaque */
+    font-size: 0.8rem;
+    /* Um pouco menor, como solicitado */
+    text-decoration: none;
+}
+
+.sub-link:hover {
+    color: #ff411191;
+}
+
+/* --- INÍCIO: ESTILIZAÇÃO COMPLETA E CORRIGIDA DO MENU DE CATEGORIAS --- */
+
+.categories-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    gap: 1rem;
+    /* Restaura o espaçamento entre os botões */
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* 1. ESTILO PADRÃO PARA TODOS OS BOTÕES */
+.category-btn {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--withe-color);
+    /* Adiciona uma borda branca sutil */
+    color: var(--withe-color);
+    border-radius: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    background: none;
+    /* Mantém transparente por padrão */
+    transition: all 0.3s ease-in-out;
+    /* Animação suave para tudo */
+}
+
+/* 2. EFEITO AO PASSAR O MOUSE (HOVER) */
+.category-btn:hover {
+    background-color: var(--hover-btn);
+    /* Fundo levemente branco ao passar o mouse */
+}
+
+/* 3. ESTILO DO BOTÃO ATIVO (SELECIONADO) */
+.category-btn.active {
+    background-color: var(--primary-color);
+    /* Cor de fundo laranja */
+    border-color: var(--primary-color);
+    /* Borda da mesma cor */
+}
+
+/* 4. ÍCONE ESCONDIDO POR PADRÃO */
+.category-btn i {
+    font-size: 1.2rem;
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+/* 5. MOSTRAR ÍCONE AO PASSAR O MOUSE */
+.category-btn:hover i {
+    width: 1.5rem;
+    opacity: 1;
+    margin-right: 0.5rem;
+    /* Cria espaço entre o ícone e o texto */
+}
+
+/* 6. REGRA ESPECIAL: MOSTRAR O ÍCONE DO BOTÃO ATIVO SEMPRE */
+.category-btn.active i {
+    width: 1.5rem;
+    opacity: 1;
+    margin-right: 0.5rem;
+}
+
+/* --- FIM DA ESTILIZAÇÃO DO MENU --- */
+
+.hero-section {
+    background: #FF4111;
+    background: radial-gradient(circle, rgba(255, 65, 17, 1) 0%, rgba(50, 5, 89, 1) 65%);
+    color: var(--withe-color);
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.hero-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+}
+
+/* margin-botton - embaixo
+    margin-top - cima
+    margin-right - direita
+    margin-left - esquerda
+*/
+
+footer {
+    background-color: var(--secondary-color);
+    color: var(--withe-color);
+    text-align: center;
+    padding: 2rem;
+}
+
+.products {
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+    margin: 0 auto;
+
+}
+
+
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    background-color: var(--withe-color);
+    border-radius: 1rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.5s;
+    box-shadow: rgba(5, 5, 5, 0.596) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.product-card:hover {
+    transform: translateY(-1rem);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.product-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+
+}
+
+.product-info {
+    padding: 1.5rem;
+}
+
+.product-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--text-color)
+}
+
+.product-description {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+
+
+.product-price {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.product-button {
+    width: 100%;
+    background-color: var(--accent-color);
+    color: var(--withe-color);
+    border: none;
+    padding: 0.7rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.product-button:hover {
+    background-color: #ff0000e4;
+}
+
+
+/* Container que alinha o ícone e os links de login */
+.login-container {
+    display: flex;
+    /* ATIVA O ALINHAMENTO FLEXÍVEL */
+    align-items: center;
+    /* Centraliza o ícone verticalmente com o texto */
+    gap: 0.75rem;
+    /* Cria um espaço entre o ícone e os links */
+}
+
+/* Estilo para o ícone de usuário (você já tem este) */
+.login-container i {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+/* --- ESTILOS ATUALIZADOS PARA O EFEITO SINCRONIZADO --- */
+
+/* 1. A transição suave agora é no wrapper e no container de produtos */
+.sticky-section-wrapper,
+.products {
+    transition: all 0.3s ease-in-out;
+}
+
+/* 2. O novo wrapper é quem fica fixo quando a classe '.scrolled' é aplicada */
+.sticky-section-wrapper.scrolled {
+    position: fixed;
+    top: 80px;
+    /* Posição abaixo do header principal */
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+/* 3. A classe .hidden desliza o wrapper inteiro para fora da tela */
+.sticky-section-wrapper.scrolled.hidden {
+    transform: translateY(-100%);
+}
+
+/* 4. A NOVA correção do "salto" do conteúdo */
+/* Agora o elemento que vem depois do wrapper é o .products. 
+   A altura combinada da barra e do hero é de aprox. 250px. */
+.sticky-section-wrapper.scrolled:not(.hidden)+.products {
+    padding-top: 250px;
+    /* Ajuste este valor se a altura dos elementos mudar */
+}
+
+
+
+/* Estilo dos campos do formulário */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+
+/* Botão principal do formulário */
+.form-btn {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: var(--primary-color);
+    color: var(--withe-color);
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-btn:hover {
+    background-color: #e6390f;
+}
+
+/* Texto para alternar entre login e cadastro */
+.form-switch-text {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.form-switch-text a {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* --- FIM DOS ESTILOS DO MODAL --- */
+
+/* --- INÍCIO: ESTILOS PARA PÁGINA DE CADASTRO/LOGIN --- */
+
+/* Estilo para o corpo (body) da página de autenticação */
+.auth-page-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ocupa a altura inteira da tela */
+    background-color: var(--light-gray);
+}
+
+/* Container branco do formulário */
+.auth-container {
+    background-color: var(--withe-color);
+    padding: 2.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+}
+
+.auth-container h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--secondary-color);
+}
+
+/* O resto do estilo do formulário (form-group, form-btn, etc.)
+   já deve ser aproveitado do CSS do modal que você já tem! */
+
+/* --- FIM DOS ESTILOS --- */
+
+/* --- INÍCIO: ESTILOS DO CARRINHO DE COMPRAS --- */
+
+/* Estilo para o ícone do carrinho no header */
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+    margin-left: 1.5rem;
+}
+
+.cart-icon i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+/* Contador de itens no carrinho */
+.cart-item-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: var(--secondary-color);
+    color: var(--withe-color);
+    border-radius: 50%;
+    padding: 0.1rem 0.4rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+/* Fundo escurecido */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Container principal do carrinho lateral */
+.side-cart {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Começa fora da tela */
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    background-color: var(--withe-color);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    z-index: 2000;
+    transition: right 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-cart.open {
+    right: 0; /* Entra na tela */
+}
+
+/* Cabeçalho do carrinho */
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.cart-header h3 {
+    color: var(--secondary-color);
+}
+
+.close-cart-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #888;
+}
+
+/* Container dos itens */
+.cart-items-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+/* Rodapé do carrinho */
+.cart-footer {
+    padding: 1.5rem;
+    border-top: 1px solid var(--light-gray);
+}
+
+.cart-footer p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: var(--primary-color);
+    color: var(--withe-color);
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.checkout-btn:hover {
+    background-color: #e6390f;
+}
+
+/* --- FIM: ESTILOS DO CARRINHO DE COMPRAS --- */
+
+/* --- INÍCIO: AJUSTES DE ALINHAMENTO DO CABEÇALHO --- */
+
+/* Novo container para agrupar login e carrinho */
+.user-actions {
+    display: flex;       /* Alinha os itens na horizontal */
+    align-items: center; /* Centraliza verticalmente */
+    gap: 1.5rem;         /* Cria um espaço entre o login e o carrinho */
+}
+
+/* Ajuste no container de login para remover margem desnecessária */
+.login-container {
+    gap: 0.5rem; /* Reduz o espaço entre o ícone de usuário e o texto */
+}
+
+/* Ajuste no ícone do carrinho para remover a margem que o afastava */
+.cart-icon {
+    margin-left: 0; /* Remove a margem esquerda anterior */
+}
+
+/* --- FIM: AJUSTES DE ALINHAMENTO DO CABEÇALHO --- */
