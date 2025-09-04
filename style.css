@@ -604,3 +604,22 @@ footer {
 }
 
 /* --- FIM: AJUSTES DE ALINHAMENTO DO CABEÇALHO --- */
+
+@media screen {
+        /* Estilos responsivos para dispositivos menores */
+        .auth-container {
+            padding: 1.5rem;
+        }
+
+        .cart-icon i {
+            font-size: 1.25rem;
+        }
+
+        .cart-footer p {
+            font-size: 1rem;
+        }
+
+        .checkout-btn {
+            font-size: 1rem;
+        }
+}
