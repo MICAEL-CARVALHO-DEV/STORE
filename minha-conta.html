@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <meta name="description" content="Minha conta 7STORE: dados, enderecos e pedidos.">
+  <title>Minha Conta - 7STORE</title>
+</head>
+
+<body class="account-page-body">
+  <header>
+    <a class="logo" href="index.html">
+      <i class="fa-solid fa-tree"></i>
+      <h2>7STORE</h2>
+    </a>
+
+    <div class="user-actions">
+      <button id="toggleTheme" class="btn-theme-toggle" aria-label="Alternar Tema Claro/Escuro">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+      <a class="admin-back-link" href="index.html">Voltar</a>
+    </div>
+  </header>
+
+  <main class="account-main">
+    <section class="admin-card">
+      <div class="admin-dashboard-topbar">
+        <div>
+          <h1>Minha conta</h1>
+          <p class="admin-muted" id="accountSubtitle"></p>
+        </div>
+        <div class="admin-actions-inline">
+          <button id="accountLogout" type="button" class="admin-btn">Sair</button>
+        </div>
+      </div>
+
+      <section class="admin-subsection">
+        <h2 class="admin-section-title">Enderecos</h2>
+        <div id="accountAddressList" class="checkout-address-list"></div>
+
+        <details class="checkout-details">
+          <summary>Adicionar endereco</summary>
+          <form id="accountAddressForm" class="checkout-form">
+            <div class="form-group">
+              <label for="acc-addr-receiver">Nome do recebedor</label>
+              <input id="acc-addr-receiver" type="text" required maxlength="120">
+            </div>
+            <div class="form-group">
+              <label for="acc-addr-phone">Telefone</label>
+              <input id="acc-addr-phone" type="tel" maxlength="30">
+            </div>
+            <div class="form-group">
+              <label for="acc-addr-zip">CEP</label>
+              <input id="acc-addr-zip" type="text" maxlength="15">
+            </div>
+            <div class="form-group">
+              <label for="acc-addr-street">Rua</label>
+              <input id="acc-addr-street" type="text" required maxlength="160">
+            </div>
+            <div class="form-group">
+              <label for="acc-addr-number">Numero</label>
+              <input id="acc-addr-number" type="text" maxlength="20">
+            </div>
+            <div class="form-group">
+              <label for="acc-addr-complement">Complemento</label>
+              <input id="acc-addr-complement" type="text" maxlength="80">
+            </div>
+            <div class="form-group">
+              <label for="acc-addr-district">Bairro</label>
+              <input id="acc-addr-district" type="text" maxlength="80">
+            </div>
+            <div class="form-group">
+              <label for="acc-addr-city">Cidade</label>
+              <input id="acc-addr-city" type="text" required maxlength="80">
+            </div>
+            <div class="form-group">
+              <label for="acc-addr-state">Estado</label>
+              <input id="acc-addr-state" type="text" required maxlength="40">
+            </div>
+            <div class="form-group checkout-inline">
+              <label><input id="acc-addr-default" type="checkbox"> Definir como padrao</label>
+            </div>
+            <button class="form-btn" type="submit">Salvar</button>
+            <p class="admin-feedback" id="accountAddressFeedback"></p>
+          </form>
+        </details>
+      </section>
+
+      <section class="admin-subsection">
+        <h2 class="admin-section-title">Pedidos</h2>
+        <div id="accountOrders" class="account-orders"></div>
+        <p class="admin-feedback" id="accountOrdersFeedback"></p>
+      </section>
+    </section>
+  </main>
+
+  <script src="data-store.js"></script>
+  <script src="/api/supabase-config"></script>
+  <script src="supabase-config.js"></script>
+  <script src="cloud-sync.js"></script>
+  <script src="scripts.js"></script>
+</body>
+
+</html>

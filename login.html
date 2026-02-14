@@ -3,20 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css"> <title>Login - 7STORE</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <meta name="description" content="Acesse sua conta na 7STORE para acompanhar seus pedidos e ofertas exclusivas.">
+    <meta property="og:title" content="Login - 7STORE">
+    <meta property="og:description" content="Acesse sua conta com segurança.">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Login - 7STORE</title>
 </head>
+
 <body class="auth-page-body">
 
+    <header>
+    <a class="logo" href="index.html">
+        <i class="fa-solid fa-tree"></i>
+        <h2>7STORE</h2>
+    </a>
+    </header>
+
     <div class="auth-container">
+        <div style="text-align: right; margin-bottom: 1rem;">
+             <button id="toggleTheme" class="btn-theme-toggle" aria-label="Alternar Tema Claro/Escuro">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+        
         <h2>Entrar na 7STORE</h2>
         <form>
             <div class="form-group">
                 <label for="login-email">Email</label>
-                <input type="email" id="login-email" placeholder="seuemail@exemplo.com" required>
+                <input type="email" id="login-email" placeholder="seuemail@exemplo.com" required maxlength="255">
             </div>
             <div class="form-group">
                 <label for="login-password">Senha</label>
-                <input type="password" id="login-password" placeholder="Sua senha" required>
+                <input type="password" id="login-password" placeholder="Sua senha" required maxlength="50">
+            </div>
+            <div class="auth-helper-row">
+                <a href="#" id="forgot-password-link">Esqueci minha senha</a>
             </div>
             <button type="submit" class="form-btn">Entrar</button>
             <p class="form-switch-text">
@@ -25,5 +51,14 @@
         </form>
     </div>
 
+    <button class="chatbot-float-btn" id="chatbotToggle" aria-label="Abrir Chatbot de Suporte">
+        <i class="fa-solid fa-comment-dots"></i>
+    </button>
+    
+    <script src="data-store.js"></script>
+    <script src="/api/supabase-config"></script>
+    <script src="supabase-config.js"></script>
+    <script src="cloud-sync.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>

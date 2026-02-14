@@ -6,29 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-    <meta name="description"
-        content="7STORE: Sua loja online de eletrônicos e acessórios de alta tecnologia. Encontre os melhores Smartphones, Notebooks e Fones.">
-    <meta property="og:title" content="7STORE - Sua Loja de Tecnologia">
-    <meta property="og:description" content="Encontre os melhores Smartphones, Notebooks e Acessórios.">
-    <meta property="og:type" content="website">
+    
+    <meta name="description" content="Detalhes do produto - 7STORE: Seu próximo dispositivo de tecnologia está aqui.">
+    <meta property="og:title" content="Detalhes do Produto - 7STORE">
+    <meta property="og:description" content="Confira as especificações completas, preços e compre agora.">
+    <meta property="og:type" content="product">
 
     <meta name="twitter:card" content="summary_large_image">
-    <title>7STORE</title>
+    <title>Detalhes do Produto - 7STORE</title>
 </head>
 
 <body>
     <header>
-        <a class="logo" href="index.html">
-            <i class="fa-solid fa-tree"></i>
-            <h2>7STORE</h2>
-        </a>
+   
+    <a class="logo" href="index.html">
+        <i class="fa-solid fa-tree"></i>
+        <h2>7STORE</h2>
+    </a>
 
         <div class="search-container">
             <input type="text" class="search-input" placeholder="Pesquisar produtos...">
             <i class="fa-solid fa-magnifying-glass "></i>
-            <div class="search-history-dropdown">
-            </div>
         </div>
 
         <div class="user-actions">
@@ -45,90 +43,19 @@
                 <i class="fa-solid fa-user"></i>
                 <div class="auth-links">
                     <a href="login.html" class="main-link">Entrar</a>
-                    <a href="cadastro.html" class="sub-link">Cadastrar</a>
+                    <a href="cadastro.html" class="sub-link">Cadastre-se</a>
                     <a href="admin.html" class="sub-link">Painel Mestre</a>
                 </div>
             </div>
         </div>
     </header>
-
-    <div class="sticky-section-wrapper">
-        <div class="categories-container">
-            <nav class="categories-bar">
-                <button class="category-btn active" data-category="all">
-                    <i class="fa-solid fa-border-all"></i>
-                    Todos
-                </button>
-                <button class="category-btn" data-category="smartphones">
-                    <i class="fa-solid fa-mobile"></i>
-                    Smartphones
-                </button>
-                <button class="category-btn" data-category="laptops">
-                    <i class="fa-solid fa-laptop"></i>
-                    Notebooks
-                </button>
-                <button class="category-btn" data-category="headphones">
-                    <i class="fa-solid fa-headphones"></i>
-                    Fones
-                </button>
-                <button class="category-btn" data-category="accessories">
-                    <i class="fa-solid fa-keyboard"></i>
-                    Acessórios
-                </button>
-                <button class="category-btn" data-category="smartwatch">
-                    <i class="fa-solid fa-clock"></i>
-                    SmarthWatches
-                </button>
-            </nav>
-        </div>
-
-        <section class="hero-section">
-            <h2> BLACK FRIDAY ULTIMO MÊS ! </h2>
-            <p class="hero-p">Até 77% de desconto em produtos selecionados </p>
-        </section>
-    </div>
-
-        <main class="products">
-        <aside class="filters-sidebar" aria-label="Filtros de produtos">
-            <div class="filters-card">
-                <h3>Filtros</h3>
-
-                <div class="filters-group">
-                    <label for="filter-min-price">Preco minimo</label>
-                    <input id="filter-min-price" type="number" min="0" step="0.01" placeholder="0.00">
-                </div>
-
-                <div class="filters-group">
-                    <label for="filter-max-price">Preco maximo</label>
-                    <input id="filter-max-price" type="number" min="0" step="0.01" placeholder="9999.99">
-                </div>
-
-                <div class="filters-group">
-                    <label for="filter-brand">Marca</label>
-                    <select id="filter-brand">
-                        <option value="all">Todas</option>
-                    </select>
-                </div>
-
-                <button id="filter-reset" type="button" class="admin-btn">Limpar filtros</button>
-            </div>
-        </aside>
-
-        <section class="products-main">
-            <div class="sort-container">
-                <label for="sort-select">Classificar por:</label>
-                <select id="sort-select" class="sort-select">
-                    <option value="relevance">Relevância (Padrão)</option>
-                    <option value="price_asc">Preço: Menor para Maior</option>
-                    <option value="price_desc">Preço: Maior para Menor</option>
-                    <option value="popularity">Mais Vendidos</option>
-                </select>
-            </div>
-
-            <div class="products-container"></div>
+    
+    <main class="product-detail-main">
+        <section id="product-detail-container" class="detail-container">
+            <p>Carregando detalhes do produto...</p>
         </section>
     </main>
-
+    
     <footer>
         <div class="new-footer-content">
             <div class="footer-column">
@@ -164,8 +91,12 @@
                 <div class="map-placeholder">
                     <iframe
                         src="https://maps.google.com/maps?q=Av.%20Tecnologia,%20777%20-%20Centro,%20SP&t=&z=14&ie=UTF8&iwloc=&output=embed"
-                        width="100%" height="100%" style="border:0; border-radius: 0.5rem;" allowfullscreen=""
-                        loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        width="100%"
+                        height="100%"
+                        style="border:0; border-radius: 0.5rem;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>
                 <div class="footer-contact-item" style="margin-top: 1rem;">
@@ -177,22 +108,23 @@
             2026 - 7STORE. Todos os Direitos Reservados.
         </p>
     </footer>
-
+    
     <div class="side-cart">
         <div class="cart-header">
             <h3>Meu Carrinho</h3>
             <button class="close-cart-btn" aria-label="Voltar para a página anterior"><i class="fa-solid fa-arrow-left"></i></button>
         </div>
         <div class="cart-items-container">
-        </div>
+            </div>
         <div class="cart-footer">
-            <p>Subtotal: <span id="cart-subtotal">R$ 0.00</span></p>
-            <p>Frete: <span>R$ 50.00</span></p>
+            <p>Subtotal: <span id="cart-subtotal">R$ 0.00</span></p> 
+            <p>Frete: <span>R$ 50.00</span></p> 
             <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 0.5rem 0;">
             <p>Total: <span id="cart-total">R$ 0.00</span></p>
             <button class="checkout-btn">Finalizar Compra</button>
         </div>
     </div>
+    
     <div class="overlay"></div>
 
     <button class="chatbot-float-btn" id="chatbotToggle" aria-label="Abrir Chatbot de Suporte">

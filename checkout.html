@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <meta name="description" content="Finalizar compra na 7STORE. Escolha endereco e pagamento.">
+  <title>Checkout - 7STORE</title>
+</head>
+
+<body class="checkout-page-body">
+  <header>
+    <a class="logo" href="index.html">
+      <i class="fa-solid fa-tree"></i>
+      <h2>7STORE</h2>
+    </a>
+
+    <div class="user-actions">
+      <button id="toggleTheme" class="btn-theme-toggle" aria-label="Alternar Tema Claro/Escuro">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+      <a class="admin-back-link" href="index.html">Voltar</a>
+    </div>
+  </header>
+
+  <main class="checkout-main">
+    <section class="checkout-card">
+      <div class="checkout-header">
+        <div>
+          <h1>Checkout</h1>
+          <p class="admin-muted">Revise os itens e crie seu pedido.</p>
+        </div>
+        <div class="checkout-user" id="checkoutUser"></div>
+      </div>
+
+      <div class="checkout-grid">
+        <section class="checkout-section">
+          <h2 class="checkout-title">Seu carrinho</h2>
+          <div id="checkoutCartItems" class="checkout-items"></div>
+        </section>
+
+        <section class="checkout-section">
+          <h2 class="checkout-title">Endereco</h2>
+          <div id="checkoutAddressList" class="checkout-address-list"></div>
+
+          <details class="checkout-details">
+            <summary>Adicionar novo endereco</summary>
+            <form id="checkoutAddressForm" class="checkout-form">
+              <div class="form-group">
+                <label for="addr-receiver">Nome do recebedor</label>
+                <input id="addr-receiver" type="text" required maxlength="120">
+              </div>
+              <div class="form-group">
+                <label for="addr-phone">Telefone</label>
+                <input id="addr-phone" type="tel" maxlength="30" placeholder="(11) 99999-9999">
+              </div>
+              <div class="form-group">
+                <label for="addr-zip">CEP</label>
+                <input id="addr-zip" type="text" maxlength="15">
+              </div>
+              <div class="form-group">
+                <label for="addr-street">Rua</label>
+                <input id="addr-street" type="text" required maxlength="160">
+              </div>
+              <div class="form-group">
+                <label for="addr-number">Numero</label>
+                <input id="addr-number" type="text" maxlength="20">
+              </div>
+              <div class="form-group">
+                <label for="addr-complement">Complemento</label>
+                <input id="addr-complement" type="text" maxlength="80">
+              </div>
+              <div class="form-group">
+                <label for="addr-district">Bairro</label>
+                <input id="addr-district" type="text" maxlength="80">
+              </div>
+              <div class="form-group">
+                <label for="addr-city">Cidade</label>
+                <input id="addr-city" type="text" required maxlength="80">
+              </div>
+              <div class="form-group">
+                <label for="addr-state">Estado</label>
+                <input id="addr-state" type="text" required maxlength="40" placeholder="SP">
+              </div>
+              <div class="form-group checkout-inline">
+                <label><input id="addr-default" type="checkbox"> Definir como padrao</label>
+              </div>
+              <button class="form-btn" type="submit">Salvar endereco</button>
+              <p class="admin-feedback" id="checkoutAddressFeedback"></p>
+            </form>
+          </details>
+        </section>
+
+        <section class="checkout-section">
+          <h2 class="checkout-title">Cupom</h2>
+          <div class="checkout-form">
+            <div class="form-group">
+              <label for="checkoutCoupon">Codigo do cupom</label>
+              <input id="checkoutCoupon" type="text" maxlength="40" placeholder="EX: BEMVINDO10">
+            </div>
+            <button id="checkoutApplyCoupon" class="admin-btn" type="button">Aplicar</button>
+            <p class="admin-feedback" id="checkoutCouponFeedback"></p>
+          </div>
+        </section>
+
+        <section class="checkout-section">
+          <h2 class="checkout-title">Pagamento</h2>
+          <div class="checkout-payments">
+            <label class="checkout-pay-option">
+              <input type="radio" name="payment-method" value="pix" checked>
+              <span>Pix</span>
+            </label>
+            <label class="checkout-pay-option">
+              <input type="radio" name="payment-method" value="card">
+              <span>Cartao</span>
+            </label>
+          </div>
+
+          <div class="checkout-summary">
+            <div class="checkout-row"><span>Subtotal</span><strong id="sumSubtotal">R$ 0.00</strong></div>
+            <div class="checkout-row"><span>Frete</span><strong id="sumShipping">R$ 50.00</strong></div>
+            <div class="checkout-row"><span>Desconto</span><strong id="sumDiscount">R$ 0.00</strong></div>
+            <div class="checkout-row checkout-total"><span>Total</span><strong id="sumTotal">R$ 0.00</strong></div>
+          </div>
+
+          <button id="checkoutPlaceOrder" class="checkout-place-order" type="button">
+            Criar pedido
+          </button>
+          <p class="admin-feedback" id="checkoutOrderFeedback"></p>
+
+          <div id="pixPaymentBox" class="checkout-pix-box" hidden>
+            <h3 class="checkout-title">Pix</h3>
+            <p class="admin-muted">Copie o codigo abaixo ou escaneie o QR Code.</p>
+            <img id="pixQrImg" alt="QR Code Pix" class="checkout-pix-qr" hidden>
+            <textarea id="pixCode" class="checkout-pix-code" rows="4" readonly></textarea>
+            <button id="pixCopyBtn" type="button" class="admin-btn">Copiar codigo</button>
+            <p class="admin-feedback" id="pixFeedback"></p>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="data-store.js"></script>
+  <script src="/api/supabase-config"></script>
+  <script src="supabase-config.js"></script>
+  <script src="cloud-sync.js"></script>
+  <script src="scripts.js"></script>
+</body>
+
+</html>

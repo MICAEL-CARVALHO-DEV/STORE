@@ -5,25 +5,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <meta name="description" content="Crie sua conta na 7STORE e comece a comprar eletrônicos com as melhores ofertas.">
+    <meta property="og:title" content="Cadastro - 7STORE">
+    <meta property="og:description" content="Crie sua conta e garanta acesso às ofertas exclusivas.">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
     <title>Cadastro - 7STORE</title>
 </head>
 
 <body class="auth-page-body">
 
     <div class="auth-container">
+        <div style="text-align: right; margin-bottom: 1rem;">
+             <button id="toggleTheme" class="btn-theme-toggle" aria-label="Alternar Tema Claro/Escuro">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+        
         <h2>Criar Conta na 7STORE</h2>
         <form>
             <div class="form-group">
                 <label for="register-name">Nome Completo</label>
-                <input type="text" id="register-name" placeholder="Seu nome" required>
+                <input type="text" id="register-name" placeholder="Seu nome" required maxlength="100">
             </div>
             <div class="form-group">
                 <label for="register-email">Email</label>
-                <input type="email" id="register-email" placeholder="seuemail@exemplo.com" required>
+                <input type="email" id="register-email" placeholder="seuemail@exemplo.com" required maxlength="255">
             </div>
             <div class="form-group">
                 <label for="register-password">Senha</label>
-                <input type="password" id="register-password" placeholder="Crie uma senha forte" required>
+                <input type="password" id="register-password" placeholder="Crie uma senha forte" required 
+                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                       title="Deve conter pelo menos um número, uma letra maiúscula e uma minúscula, e pelo menos 8 caracteres."
+                       maxlength="50">
             </div>
             <button type="submit" class="form-btn">Criar Conta</button>
             <p class="form-switch-text">
@@ -31,7 +48,16 @@
             </p>
         </form>
     </div>
+    
+    <button class="chatbot-float-btn" id="chatbotToggle" aria-label="Abrir Chatbot de Suporte">
+        <i class="fa-solid fa-comment-dots"></i>
+    </button>
 
+    <script src="data-store.js"></script>
+    <script src="/api/supabase-config"></script>
+    <script src="supabase-config.js"></script>
+    <script src="cloud-sync.js"></script>
+    <script src="scripts.js"></script>
 </body>
 
 </html>
